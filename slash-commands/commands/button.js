@@ -1,8 +1,4 @@
-const { SlashCommandBuilder } = require('discord.js');
-module.exports={
-    data : new SlashCommandBuilder()
+import { SlashCommandBuilder } from 'discord.js';
+export const data = new SlashCommandBuilder()
     .setName('button')
-    .setDescription('add button click me')
-
-    
-}
+    .setDescription('add button click me');

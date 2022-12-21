@@ -1,22 +1,28 @@
-const fs = require('node:fs');
-const path = require('node:path');
-const { Client, Collection, Events, GatewayIntentBits,ActionRowBuilder, ButtonBuilder, ButtonStyle, EmbedBuilder,ComponentType, InteractionCollector } = require('discord.js');
-const { token } = require('./config.json');
-const { execute } = require('./commands/ping');
-
-
+import { readdirSync } from 'node:fs';
+import { join } from 'node:path';
+import { Client, Collection, Events, GatewayIntentBits, ActionRowBuilder, ButtonBuilder, ButtonStyle, EmbedBuilder} from 'discord.js';
+import dotenv from "dotenv" ;
+dotenv.config();
+import { dirname } from 'path';
+import { fileURLToPath } from 'url';
+//import { data } from './commands/button';
+//console.log(process.env.token)
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
+client.login(process.env.token);
 
+
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 client.commands = new Collection();
-const commandsPath = path.join(__dirname, 'commands');
-const commandFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith('.js'));
+const commandsPath = join(__dirname, 'commands');
+const commandFiles = readdirSync(commandsPath).filter(file => file.endsWith('.js'));
+
 
 for (const file of commandFiles) {
-	const filePath = path.join(commandsPath, file);
-	const command = require(filePath);
-	client.commands.set(command.data.name, command);
-
+	const filePath = join(commandsPath, file);
+	const command = import(filePath);
+	client.commands.set(command.data, command);
 }
 
 client.once(Events.ClientReady, () => { 
@@ -63,4 +69,4 @@ client.on(Events.InteractionCreate, async interaction => {
 	}
 	
 });
-client.login(token);
+
