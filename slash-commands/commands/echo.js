@@ -4,7 +4,7 @@ import { SlashCommandBuilder } from 'discord.js';
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 
 client.commands = new Collection();
-export const data = new SlashCommandBuilder()
+ const data = new SlashCommandBuilder()
 	.setName('echo')
 	.setDescription('Replies with your input!')
 	.addStringOption(option => option.setName('input00')
@@ -18,3 +18,4 @@ export const data = new SlashCommandBuilder()
 	.addBooleanOption(option => option.setName('embed')
 		.setDescription('Whether or not the echo should be embedded')
 	); 
+	export {data}

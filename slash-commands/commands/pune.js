@@ -1,10 +1,10 @@
 import { SlashCommandBuilder } from 'discord.js';
 
-export const data = new SlashCommandBuilder()
+ const data = new SlashCommandBuilder()
 	.setName('prune')
 	.setDescription('Prune up to 99 messages.')
 	.addIntegerOption(option => option.setName('amount').setDescription('Number of messages to prune'));
-export async function execute(interaction) {
+ async function execute(interaction) {
 	const amount = interaction.options.getInteger('amount');
 
 	if (amount < 1 || amount > 99) {
@@ -17,3 +17,4 @@ export async function execute(interaction) {
 
 	return interaction.reply({ content: `Successfully pruned \`${amount}\` messages.`, ephemeral: true });
 }
+export {data,execute}

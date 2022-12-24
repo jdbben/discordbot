@@ -4,13 +4,13 @@ import { SlashCommandBuilder } from 'discord.js';
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 
 client.commands = new Collection();
-export const data = new SlashCommandBuilder()
+ const data = new SlashCommandBuilder()
     .setName('guide')
     .setDescription('Search discordjs.guide!')
     .addStringOption(option => option.setName('query')
         .setDescription('Phrase to search for')
         .setAutocomplete(true));
-export async function autocomplete(interaction) {
+ async function execute(interaction) {
     const focusedValue = interaction.options.getFocused();
     const choices = ['Popular Topics: Threads', 'Sharding: Getting started', 'Library: Voice Connections', 'Interactions: Replying to slash commands', 'Popular Topics: Embed preview'];
     const filtered = choices.filter(choice => choice.startsWith(focusedValue));
@@ -18,4 +18,4 @@ export async function autocomplete(interaction) {
         filtered.map(choice => ({ name: choice, value: choice }))
     );
 }
-  
+export {data,execute}

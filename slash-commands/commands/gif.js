@@ -1,6 +1,6 @@
 import { SlashCommandBuilder } from 'discord.js';
 
-export const data = new SlashCommandBuilder()
+ const data = new SlashCommandBuilder()
 	.setName('gif')
 	.setDescription('Sends a random gif!')
 	.addStringOption(option => option.setName('category')
@@ -12,3 +12,4 @@ export const data = new SlashCommandBuilder()
 			{ name: 'Meme', value: 'gif_meme' },
 			{ name: 'Movie', value: 'gif_movie' }
 		));
+		export {data}
