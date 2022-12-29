@@ -1,6 +1,6 @@
 import { readdirSync } from 'node:fs';
 import { join } from 'node:path';
-import {Client, GatewayIntentBits} from 'discord.js';
+
 
 import dotenv from "dotenv" ;
 dotenv.config();

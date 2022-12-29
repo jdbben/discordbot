@@ -13,7 +13,6 @@ import { setTimeout as wait } from 'node:timers/promises';
 	await interaction.reply('Pong!.');
 	console.log('oing')
 	//await interaction.deleteReply();
-	const message = await interaction.fetchReply();
 	// console.log(message.content);
 }
 export {data, execute}
