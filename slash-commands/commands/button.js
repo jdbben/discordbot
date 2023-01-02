@@ -1,19 +1,18 @@
 import { SlashCommandBuilder ,ActionRowBuilder, ButtonBuilder, ButtonStyle, EmbedBuilder} from 'discord.js';
+import i from '/home/jamal/web/discord/bots/OAuth2/index.js'
  const data = new SlashCommandBuilder()
     .setName('button')
     .setDescription('add button click me');
     async function execute(interaction){
+  
       const row = new ActionRowBuilder()
          .addComponents(
             new ButtonBuilder()
-              .setCustomId('primary')
               .setLabel('Click me!')
-              .setStyle(ButtonStyle.Primary)
-              //.setEmoji('1044992842432512073')
-              //.setDisabled(true)
-              ,
-              
-        );
+              .setStyle(ButtonStyle.Link)
+              .setURL('https://discord.com/api/oauth2/authorize?client_id=1044987838351015968&redirect_uri=http%3A%2F%2Flocalhost%3A3000&response_type=code&scope=identify')
+ 
+              );
      const embed = new EmbedBuilder()
         .setColor(0x0099FF)
         .setTitle('Some title')

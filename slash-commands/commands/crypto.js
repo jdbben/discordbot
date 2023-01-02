@@ -16,7 +16,10 @@ const asset = await interaction.options.getString('asset');
 
 gettheprice(asset).then(data=>{
         interaction.reply( `the price of the ${asset} in USD is  ${data.rate} USD  `)
-    })
+    }).catch((error) => {
+        console.error(error);
+      });
+    
 
 
 }
