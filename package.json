@@ -1,7 +1,6 @@
 {
   "name": "bots",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -17,5 +16,15 @@
   "devDependencies": {
     "eslint": "^8.28.0"
   },
-  "type": "module"
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jdbben/discordbot.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/jdbben/discordbot/issues"
+  },
+  "homepage": "https://github.com/jdbben/discordbot#readme",
+  "description": ""
 }
