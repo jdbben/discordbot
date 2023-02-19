@@ -1,8 +1,8 @@
-import type { Command } from "../types/types";
+import type { Command } from '../types/types';
 
 const data: Command = {
-  name: "ping",
-  description: "Replies with server ping .!",
+  name: 'ping',
+  description: 'Replies with server ping .!',
   async execute(interaction) {
     await interaction.reply({
       content: `${Date.now() - interaction.createdTimestamp} ms`,
@@ -11,4 +11,4 @@ const data: Command = {
   },
 };
 
-export {data};
+export { data };
